@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:info_screen2/screens/second_screen.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});
@@ -6,17 +7,19 @@ class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff04293A),
+      backgroundColor: Color(0xffF0EBE3),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 350, top: 15),
               child: TextButton(
-                  onPressed: (() {}),
+                  onPressed: (() {
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => SecondScreen(),), (route) => true);
+                  }),
                   child: Text(
-                    "Skip",
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    "Next",
+                    style: TextStyle(color: Colors.black, fontSize: 15),
                   )),
             ),
             Padding(
@@ -33,7 +36,7 @@ class FirstScreen extends StatelessWidget {
               height: 60,
             ),
             Container(
-              height: 700,
+              height: 500,
               width: double.infinity,
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -42,13 +45,18 @@ class FirstScreen extends StatelessWidget {
                       topRight: Radius.circular(30))),
               child: Column(
                 children: [
-                  SizedBox(height: 30,),
-                  Text(
-                  "Start Coding",
-                  style: TextStyle(color: Colors.black, fontSize: 30),
-                ),
-                SizedBox(height: 13,),
-                Text("Are you ready to learn languages \n     easily in the easiest way?")
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30, right: 170),
+                    child: Text(
+                      "Programlama",
+                      style: TextStyle(color: Colors.black, fontSize: 30),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 13, left: 21),
+                    child: Text(
+                        "İlk fikirler atıldıktan ve bazı özel kodlar\nile belli başlı cihazların farklı işlemler\nyapabileceği keşfedildikten çok sonraları,\nyirminci yüzyılın ortalarına gelindiğinde\nilk dijital yazılımın adımları atıldı.\nJohn von Neumann 1945 yılında elektronik\nhesaplayıcıyı bulmasıyla, modern anlamda yazılımın temellerini attı.Dart, ilk kez Google tarafından geliştirilen ve daha sonraları ECMA tarafından standart (ECMA-408) haline getirilen açık kaynaklı ve genel-amaçlı bir programlama dilidir."),
+                  ),
                 ],
               ),
             )
